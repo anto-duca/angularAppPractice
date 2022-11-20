@@ -14,6 +14,7 @@ export class TareasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getListaTareas();
   }
 
   agregarTarea() : void{
@@ -22,14 +23,30 @@ export class TareasComponent implements OnInit {
       estado: false
     }
     this.listaTareas.push(tarea); //agrego la tarea a la lista de tareas
+    this.setSessionStorage(this.listaTareas)
     this.nombreTarea = ''; //reseteamos la tarea
   }
 
-  eliminar(i: number):void{
-    this.listaTareas.splice(i, 1)
+  eliminar(i: number, nombre : string):void{
+    this.listaTareas.splice(i, 1);
+    this.setSessionStorage(this.listaTareas)
   }
 
   actualizarTarea(tarea: Tarea, i: number):void{
     this.listaTareas[i].estado = !tarea.estado;
+    this.setSessionStorage(this.listaTareas)
+
+  }
+
+  setSessionStorage(list : Tarea[]){
+    sessionStorage.setItem('list', JSON.stringify(list))
+  }
+
+  getListaTareas(){
+    let storedList = sessionStorage.getItem('list');
+    if(storedList == null)
+      this.listaTareas = [];
+    else 
+      this.listaTareas = JSON.parse(storedList);
   }
 }
