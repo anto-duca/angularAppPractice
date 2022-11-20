@@ -1,6 +1,6 @@
 # AppTareas
 
-This project is a simple application created in Angular version 14.1.3. Whit it is possible to creat a list of to do tasks, check them as completed and delete them also.
+This project is a simple application created in Angular version 14.1.3. With it is possible to creat a list of to do tasks, check them as completed and delete them also.
 
 ## How to use it
 
