@@ -14,10 +14,8 @@
                     <div>
                         <span class="m-3 cursor" (click)="actualizarTarea(tarea, i)">
                             <i class="text-success" [ngClass]="tarea.estado == false ? 'fa-regular fa-circle' : 'fa-solid fa-circle-check'"></i>
-                            <!-- <i class="fa-regular fa-circle"></i>
-                            <i class="fa-solid fa-circle-check"></i> -->
                         </span>
-                        <span class="text-danger cursor" (click)="eliminar(i, tarea.nombre)">
+                        <span class="text-danger cursor" (click)="eliminar(i)">
                             <i class="fa-sharp fa-solid fa-trash"></i>
                         </span>
                     </div>
